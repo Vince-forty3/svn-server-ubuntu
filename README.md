@@ -1,6 +1,6 @@
 ![Docker Automated Status](https://img.shields.io/docker/cloud/automated/smezger/svn-server-ubuntu.svg?style=for-the-badge&logo=Docker) ![Docker Build Status](https://img.shields.io/docker/cloud/build/smezger/svn-server-ubuntu.svg?style=for-the-badge&logo=Docker)
 ![Docker Pulls](https://img.shields.io/docker/pulls/smezger/svn-server-ubuntu.svg?style=for-the-badge&logo=Docker)
-# Docker Image smezger/svn-server-ubuntu
+# Docker Image vince-forty3/svn-server-ubuntu
 
 
 # Description
@@ -15,3 +15,6 @@ Test if everything is up and running by opening a browser and open the url 'http
 
 # Configuration
 To create repositories and add users go to 'http://localhost/svnadmin/'. On the first start a username and password for the web admin interface has to be defined. 
+
+# Notes
+Fork of smezger/svn-server-ubuntu
