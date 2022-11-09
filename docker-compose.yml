@@ -1,26 +1,12 @@
 version: '3.6'
 services:
-  pihole:
+  svn:
     container_name: svn-server
-    image: svn-server-ubuntu
-#    network_mode: host
+    image: vince-forty3/svn-server-ubuntu
     ports:
     - "80:80"
     - "443:443"
     - "3960:3960"
-#    volumes:
-#    - ./volumes/pihole/etc-pihole:/etc/pihole
-#    - ./volumes/pihole/etc-dnsmasq.d:/etc/dnsmasq.d
-    restart: unless-stopped
-
-  portainer-ce:
-    container_name: portainer-ce
-    image: portainer/portainer-ce
-#    network_mode: host
-    restart: unless-stopped
-    ports:
-    - "8000:8000"
-    - "9000:9000"
     volumes:
-    - /var/run/docker.sock:/var/run/docker.sock
-    - ./volumes/portainer-ce/data:/data
+    - ./volumes/svn:/home/svn
+    restart: unless-stopped

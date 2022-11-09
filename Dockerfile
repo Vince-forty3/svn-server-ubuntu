@@ -27,7 +27,7 @@ RUN mkdir -p /home/svn/repos \
 #enable dav_fs dav_svn is already enabled
 RUN a2enmod dav_fs
 
-#  svnadmin
+# svnadmin
 RUN wget --no-check-certificate https://github.com/mfreiholz/iF.SVNAdmin/archive/stable-1.6.2.zip \
 	&& unzip stable-1.6.2.zip -d /opt \
 	&& rm stable-1.6.2.zip \
@@ -42,10 +42,10 @@ ADD svnadmin/classes/util/global.func.php /opt/svnadmin/classes/util/global.func
 ADD svnadmin/include/ifcorelib/IF_HtPasswd.class.php /opt/svnadmin/include/ifcorelib/IF_HtPasswd.class.php
 #To Do: Contribute to svnadmin
 
-#Adding template data for svnadmin to already set pathes
+# Adding template data for svnadmin to already set pathes
 ADD svnadmin/data/config.tpl.ini /opt/svnadmin/data/config.tpl.ini
 
-#Restart Apache2
+# Restart Apache2
 RUN service apache2 restart
 
 # Manually set up the apache environment variables
@@ -55,13 +55,13 @@ ENV APACHE_LOG_DIR /var/log/apache2
 ENV APACHE_LOCK_DIR /var/lock/apache2
 ENV APACHE_PID_FILE /var/run/apache2.pid
 
-#Ports to be exposed by container
+# Ports to be exposed by container
 EXPOSE 80 443 3960
 
 # Update the apache site with the svn config
 ADD apache2_svn.conf /etc/apache2/sites-enabled/000-default.conf
 
-#Update Auth 
+# Update Auth 
 ADD subversion-access-control.auth /home/svn/auth/subversion-access-control.auth
 RUN chmod a+w /etc/subversion/* && chmod a+w /home/svn
 
